@@ -45,4 +45,7 @@ $translate = new staticLanguage("en");
 $translate->detectLanguages($txt2);
 echo $translate->getTextByLanguage($txt2);
 
+// HINT: By the last example ($txt2) the staticLanguage-tag 
+//       {[en]} is NOT necessary IF you support one language only.
+
 ?>
