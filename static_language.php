@@ -24,7 +24,9 @@ class staticLanguage {
 		for($a=0; $a<count($sox);$a++) {
 			$eox = explode(']}', $sox[$a]);
 			if(!in_array($eox[0], $this->availableLanguages)) {
-				$this->availableLanguages[] = $eox[0];
+				if(!empty($eox[0])) {
+					$this->availableLanguages[] = $eox[0];
+				}
 			}
 		}
 	}	
@@ -43,11 +45,7 @@ class staticLanguage {
 			// if the string contains language tags but not the selected language
 			// so get another language. Otherwise it wont print an output.
 			$output = "";
-			if(!empty($this->availableLanguages[0])) {
-				 $language = $this->availableLanguages[0];
-			} else {
-				 $language = $this->availableLanguages[1];
-			} 
+			$language =$this->availableLanguages[0];
 			$fix = explode('{['.$language.']}', $text);
 			for($b=0; $b<count($fix); $b++) {
 				$tmp = explode('{[', $fix[$b]);
